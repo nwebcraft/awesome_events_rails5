@@ -1,0 +1,94 @@
+en:
+  activerecord:
+    models:
+      event: event
+      ticket: ticket
+    attributes:
+      event:
+        name: event name
+        place: event place
+        start_time: start time
+        end_time: end time
+        content: content
+        event_image: event image
+      ticket:
+        comment: comment
+
+  header:
+    create_event: Create event
+    login: Login
+    twitter_login: Twitter
+    logout: Logout
+    retire: Retire
+
+  message:
+    notice:
+      created_event: Created event.
+      updated_event: Updated event.
+      deleted_event: Deleted event.
+      joined_event: Joined event.
+      canceled_event: Canceled event.
+      retired: You retired.
+    alert:
+      no_login: Please login!
+    error:
+      start_time_should_be_before_end_time: should be before the end time.
+      not_end_created_event_exists: Not end event that you created exists.
+      not_end_joined_event_exists: Not end event that you joined exists.
+    exception:
+      invalid_tickets_new: Invalid access to TicketsController.new (login)
+
+  welcome:
+    index:
+      h1: Event list
+      search:
+        conditions:
+          event_name: Event name
+          start_time: Start time
+        submit: Search
+
+  users:
+    retire:
+      h1: Confirm retire
+      alert1: Your user data will be deleted if you retire.
+      alert2: You can't retire if you are under conditions below.
+      conditions:
+        no1: Now in session event you created.
+        no2: Now in session or not ended event you join.
+      button:
+        retire: I retire
+
+  events:
+    new:
+      h1: Create event
+      create_button: Create
+      processing_msg: Creating...
+    show:
+      owner: Event owner
+      start_time: Start time
+      place: Place
+      content: Content
+      joiner: Participant
+      owner_retired_message: Retired user
+      joiner_retired_message: Retired user
+      edit_button: Edit event
+      delete_button: Delete event
+      delete_confirm: You really DELETE?
+      ticket:
+        button:
+          join: Join
+          cancel: Cancel to join
+        modal:
+          title: Comment for join
+          cancel: Cancel
+          send: Send
+          sending: Sending
+    edit:
+      h1: Edit event
+      remove_event_image: Delete image
+      update_button: Updated
+      processing_msg: Updating...
+
+  errors:
+    error404: Not found.
+    error500: Error occured.

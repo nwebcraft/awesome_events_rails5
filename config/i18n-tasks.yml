@@ -1,0 +1,6 @@
+internal_locale: en
+base_locale: ja
+locales: [ja, en]
+data:
+  read:
+    - config/locales/**/*%{locale}.yml

@@ -1,0 +1,70 @@
+.page-header
+  h1 = @event.name
+
+.row
+  .col-md-8
+    - if @event.event_image?
+      .thumnail
+        = image_tag @event.event_image.url
+    .panel.panel-default
+      .panel-heading = t '.owner'
+      .panel-body
+        - if @event.owner
+          = link_to "https://twitter.com/#{@event.owner.nickname}"
+            = image_tag @event.owner.image_url
+            = "@#{@event.owner.nickname}"
+        - else
+          = t '.owner_retired_message'
+
+    .panel.panel-default
+      .panel-heading = t '.start_time'
+      .panel-body = "#{@event.start_time.strftime('%Y/%m/%d %H:%M')} - #{@event.end_time.strftime('%Y/%m/%d %H:%M')}"
+
+    .panel.panel-default
+      .panel-heading = t '.place'
+      .panel-body = @event.place
+
+    .panel.panel-default
+      .panel-heading = t '.content'
+      .panel-body = @event.content
+
+  .col-md-4
+    - if @event.created_by? current_user
+      = link_to t('.edit_button'), edit_event_path(@event), class: 'btn btn-info btn-lg btn-block'
+      = link_to t('.delete_button'), event_path(@event), class: 'btn btn-danger btn-lg btn-block', method: :delete, data: { confirm: t('.delete_confirm') }
+    - if @ticket
+      = link_to t('.ticket.button.cancel'),
+                event_ticket_path(@event, @ticket),
+                method: :delete,
+                class: 'btn btn-warning btn-lg btn-block',
+                data: { confirm: t('.delete_confirm') }
+    - elsif logged_in?
+      button.btn.btn-primary.btn-lg.btn-block data-toggle="modal" data-target="#createTicket" = t '.ticket.button.join'
+      #createTicket.modal.fade tabindex="-1" role="dialog" aria-labelledby="dialogHeader" aria-hidden="true"
+        .modal-dialog
+          .modal-content
+            .modal-header
+              button.close type="button" data-dismiss="modal" aria-hidden="true" &times;
+              h4#dialogHeader.modal-title = t('.ticket.modal.title')
+            = form_for @event.tickets.build, url: event_tickets_path(@event), remote: true do |f|
+              .modal-body
+                = f.text_field :comment, class: 'form-control'
+              .modal-footer
+                button.btn.btn-default type="button" data-dismiss="modal" = t('.ticket.modal.cancel')
+                = f.button t('.ticket.modal.send'), class: 'btn btn-primary', data: { disable_with: t('.ticket.modal.sending') }
+    - else
+      = link_to t('.ticket.button.join'), new_event_ticket_path(@event), class: 'btn btn-primary btn-lg btn-block'
+    hr
+    .panel.panel-default
+      .panel-heading = t '.joiner'
+      .panel-body
+        ul.list-unstyled
+          - @tickets.each do |ticket|
+            - if ticket.user
+              li
+                = link_to url_for_twitter(ticket.user) do
+                  = image_tag ticket.user.image_url, width: 20, height: 20
+                  = "@#{ticket.user.nickname}"
+                = ticket.comment
+            - else
+              = t '.joiner_retired_message'

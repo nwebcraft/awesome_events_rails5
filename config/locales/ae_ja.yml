@@ -1,0 +1,94 @@
+ja:
+  activerecord:
+    models:
+      event: イベント
+      ticket: チケット
+    attributes:
+      event:
+        name: 名前
+        place: 場所
+        start_time: 開始時間
+        end_time: 終了時間
+        content: 内容
+        event_image: イベント画像
+      ticket:
+        comment: コメント
+
+  header:
+    create_event: イベントを作成
+    login: ログイン
+    twitter_login: Twitterでログイン
+    logout: ログアウト
+    retire: 退会
+
+  message:
+    notice:
+      created_event: イベントを作成しました
+      updated_event: イベントを更新しました
+      deleted_event: イベントを削除しました
+      joined_event: このイベントに参加表明しました
+      canceled_event: このイベントの参加をキャンセルしました
+      retired: 退会完了しました
+    alert:
+      no_login: ログインしてください
+    error:
+      start_time_should_be_before_end_time: は終了時刻よりも前に設定してください
+      not_end_created_event_exists: 公開中の未終了イベントが存在します
+      not_end_joined_event_exists: 未終了の参加イベントが存在します
+    exception:
+      invalid_tickets_new: ログイン状態で TicketsController.newにアクセス
+
+  welcome:
+    index:
+      h1: イベント一覧
+      search:
+        conditions:
+          event_name: イベント名
+          start_time: 開催日
+        submit: 検索
+
+  users:
+    retire:
+      h1: 退会の確認
+      alert1: 退会した場合、ユーザーに関するデータが削除されます。
+      alert2: 以下の場合は退会できません。
+      conditions:
+        no1: 公開中の未終了イベントがある場合
+        no2: 未終了の参加イベントがある場合
+      button:
+        retire: 退会する
+
+  events:
+    new:
+      h1: イベント作成
+      create_button: 作成
+      processing_msg: 作成中…
+    show:
+      owner: 主催者
+      start_time: 開催時間
+      place: 開催場所
+      content: イベント内容
+      joiner: 参加者
+      owner_retired_message: 退会したユーザーです
+      joiner_retired_message: 退会したユーザーです
+      edit_button: イベントを編集する
+      delete_button: イベントを削除する
+      delete_confirm: 本当に削除しますか？
+      ticket:
+        button:
+          join: 参加する
+          cancel: 参加をキャンセルする
+        modal:
+          title: 参加コメント
+          cancel: キャンセル
+          send: 送信
+          sending: 送信中…
+    edit:
+      h1: イベント情報編集
+      remove_event_image: 画像を削除する
+      update_button: 更新
+      processing_msg: 更新中…
+
+  errors:
+    error404: ご指定になったページは存在しません
+    error500: エラーが発生しました

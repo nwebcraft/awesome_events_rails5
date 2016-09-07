@@ -67,6 +67,11 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
 
+  # RSpec
+  gem 'rspec-rails'
+
+  # Facrory Girl
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -80,6 +85,10 @@ group :development do
   # I18n
   gem 'i18n-tasks'
 
+end
+
+group :test do
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

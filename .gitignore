@@ -28,8 +28,5 @@
 # Ignore .env
 .env
 
-# Ignore .keep
-.keep
-
 # public/uploads
 /public/uploads

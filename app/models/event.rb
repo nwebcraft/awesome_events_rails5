@@ -21,7 +21,6 @@ class Event < ApplicationRecord
 
   def created_by?(user)
     return false unless user
-    # owner == user DBへの問い合わせるので下の方がよい
     owner_id == user.id
   end
 

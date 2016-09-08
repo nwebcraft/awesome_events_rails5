@@ -72,6 +72,9 @@ group :development, :test do
 
   # Facrory Girl
   gem 'factory_girl_rails'
+
+  # Timecop
+  gem 'timecop'
 end
 
 group :development do

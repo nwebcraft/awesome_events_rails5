@@ -46,7 +46,7 @@ RSpec.describe Event, type: :model do
   end
 
   describe 'private method' do
-    describe '#start_time_should_be_before_end_time' do
+    describe '#start_time_should_be_before_end_time を実行したときの event.errors[:start_time]' do
       before :each do
         event.send(:start_time_should_be_before_end_time)
       end

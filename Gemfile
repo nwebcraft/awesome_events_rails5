@@ -69,6 +69,7 @@ group :development, :test do
 
   # RSpec
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
 
   # Facrory Girl
   gem 'factory_girl_rails'
